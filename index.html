@@ -75,6 +75,12 @@
     .project-card.wide video {
       height: 160px;
     }
+
+    /* Wider panels for Code and Writing tabs because they have more media */
+    #main article#code,
+    #main article#writing {
+      width: 65rem;
+    }
   </style>
 </head>
 
@@ -136,7 +142,7 @@
                Replace src with your screen recording: images/projects/bdnn.mp4
                autoplay + muted + loop = plays silently on load like a GIF
           ─────────────────────────────────────────────────────────── -->
-          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/BDNN_Arielli">
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/pt_diversity_rates">
             <img src="images/BDNN.jpg" alt="BDNN screenshot" />
             <div class="card-label">Using Bayesian Neural Networks for Evolutionary Biology</div>
           </a>
@@ -155,12 +161,17 @@
           </a>
 
           <a class="project-card" target="_blank" href="https://github.com/shelleylwang/movie_project">
-            <img src="images/movies.jpg" alt="Film industry project screenshot" />
-            <div class="card-label">Statistical Testing of Optimal Film Industry Entry</div>
+            <video autoplay muted loop playsinline>
+              <source src="images/movie.mp4" type="video/mp4" />
+            </video>
+            <div class="card-label">Film Industry Statistical Analysis and Business Plan
+            </div>
           </a>
 
           <a class="project-card" target="_blank" href="https://github.com/shelleylwang/Airline_DS_Project">
-            <img src="images/airline.jpg" alt="Airline data project screenshot" />
+            <video autoplay muted loop playsinline>
+              <source src="images/airline.mp4" type="video/mp4" />
+            </video>
             <div class="card-label">Exploratory Analysis &amp; Visualization of Airline Data</div>
           </a>
 
@@ -178,7 +189,7 @@
       <!-- Writing -->
       <article id="writing">
         <h2 class="major">Writing</h2>
-        <h4 class="major">Written before LLM's Existed</h4>
+        <p> Written before LLM's Existed</p>
         <br>
         <h3>Dartmouth College</h3>
 
@@ -198,8 +209,6 @@
             </a>
           </p>
         </div>
-
-        <br>
         <div>
           <h4>Financial Modeling</h4>
           <div>
