@@ -14,6 +14,68 @@
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
+  <style>
+    /* ── Project cards ───────────────────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .project-card:hover {
+      transform: scale(1.045);
+      box-shadow: 0 8px 36px rgba(255, 255, 255, 0.22);
+    }
+
+    /* The media (image OR video) fills the card width */
+    .project-card img,
+    .project-card video {
+      display: block;
+      width: 100%;
+      height: 140px;
+      /* fixed thumbnail height — adjust freely */
+      object-fit: cover;
+      border-radius: 14px 14px 0 0;
+      transition: filter 0.28s ease;
+    }
+
+    .project-card:hover img,
+    .project-card:hover video {
+      filter: brightness(1.18) saturate(1.1);
+    }
+
+    /* Title label below the media */
+    .project-card .card-label {
+      padding: 0.55em 0.75em 0.65em;
+      font-size: 0.8em;
+      line-height: 1.35;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Single-column full-width variant (for Works in Progress) */
+    .project-card.wide img,
+    .project-card.wide video {
+      height: 160px;
+    }
+  </style>
 </head>
 
 <body class="is-preload">
@@ -39,8 +101,8 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#research">Code</a></li>
-          <li><a href="#teaching">Writing</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#writing">Writing</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <!--<li><a href="#elements">Elements</a></li>-->
@@ -51,58 +113,76 @@
     <!-- Main -->
     <div id="main">
 
-      <!-- Research -->
-      <article id="research">
+      <!-- Code -->
+      <article id="code">
         <h2 class="major">Code</h2>
-        <div>
-          <h3>Completed Works</h3>
-          <p>
-            <a target="_blank" href="https://shelleylwang.com/pyrate_wizard">
-              Interactive Web Guide + Claude API for Phylogenetic Analysis of Reptiles (PyRate Wizard)
-            </a>
-          </p>
-          <p>
-            <a target="_blank" href="https://github.com/shelleylwang/BDNN_Arielli">
-              Using Bayesian Neural Networks for Evolutionary Biology
-            </a>
-          </p>
-          <p>
-            <a target="_blank" href="https://github.com/shelleylwang/presidency_project">
-              Predictive NLP Classification of Presidential Rhetoric
-            </a>
-          </p>
-          <p>
-            <a target="_blank" href="https://github.com/shelleylwang/covid_vax_project">
-              Multinomial Naive Bayes & Tree-Based Modeling of Covid-19 Vaccination Rates
-            </a>
-          </p>
-          <p>
-            <a target="_blank" href="https://github.com/shelleylwang/movie_project">
-              Statistical Testing of Optimal Film Industry Entry
-            </a>
-          </p>
-          <p>
-            <a target="_blank" href="https://github.com/shelleylwang/Airline_DS_Project">
-              Exploratory Analysis & Visualization of Airline Data
 
-              <div>
-                <h3>Works in Progress</h3>
-                <p>
-                  <a target="_blank" href="https://github.com/shelleylwang/goodreads-recommendations">
-                    GoodReads Content-Based & Collaborative Filtering Recommendation Systems
-                  </a>
-                </p>
+        <h3>Completed Works</h3>
+        <div class="project-grid">
 
-              </div>
+          <!-- ── Card: static image version ───────────────────────────
+               Replace src with your screenshot: images/projects/pyrate_wizard.jpg
+               (or .png / .gif)
+          ─────────────────────────────────────────────────────────── -->
+          <a class="project-card" target="_blank" href="https://shelleylwang.com/pyrate_wizard">
+            <video autoplay muted loop playsinline>
+              <source src="images/pyrate_wizard_demo.mp4" type="video/mp4" />
+            </video>
+            <div class="card-label">Interactive Web Guide + Claude API for Phylogenetic Analysis of Reptiles (PyRate
+              Wizard)</div>
+          </a>
+
+          <!-- ── Card: video version ───────────────────────────────────
+               Replace src with your screen recording: images/projects/bdnn.mp4
+               autoplay + muted + loop = plays silently on load like a GIF
+          ─────────────────────────────────────────────────────────── -->
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/BDNN_Arielli">
+            <img src="images/BDNN.jpg" alt="BDNN screenshot" />
+            <div class="card-label">Using Bayesian Neural Networks for Evolutionary Biology</div>
+          </a>
+
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/presidency_project">
+            <img src="images/presidency.jpg" alt="Presidential rhetoric project screenshot" />
+            <div class="card-label">Predictive NLP Classification of Presidential Rhetoric</div>
+          </a>
+
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/covid_vax_project">
+            <video autoplay muted loop playsinline>
+              <source src="images/vaccination.mp4" type="video/mp4" />
+            </video>
+            <div class="card-label">Multinomial Naive Bayes &amp; Tree-Based Modeling of Covid-19 Vaccination Rates
+            </div>
+          </a>
+
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/movie_project">
+            <img src="images/movies.jpg" alt="Film industry project screenshot" />
+            <div class="card-label">Statistical Testing of Optimal Film Industry Entry</div>
+          </a>
+
+          <a class="project-card" target="_blank" href="https://github.com/shelleylwang/Airline_DS_Project">
+            <img src="images/airline.jpg" alt="Airline data project screenshot" />
+            <div class="card-label">Exploratory Analysis &amp; Visualization of Airline Data</div>
+          </a>
+
+        </div><!-- /project-grid -->
+
+        <h3>Works in Progress</h3>
+        <!-- wide = single full-width card -->
+        <a class="project-card wide" target="_blank" href="https://github.com/shelleylwang/goodreads-recommendations">
+          <img src="images/projects/goodreads.jpg" alt="GoodReads recommendation system screenshot" />
+          <div class="card-label">GoodReads Content-Based &amp; Collaborative Filtering Recommendation Systems</div>
+        </a>
 
       </article>
 
-      <!-- Teaching -->
-      <article id="teaching">
+      <!-- Writing -->
+      <article id="writing">
         <h2 class="major">Writing</h2>
+        <h4 class="major">Written before LLM's Existed</h4>
+        <br>
         <h3>Dartmouth College</h3>
 
-        <h4>Economics</h4>
+        <h4>Economics Research</h4>
         <div>
           <p>
             <a target="_blank"
@@ -119,8 +199,9 @@
           </p>
         </div>
 
+        <br>
         <div>
-          <h4>Finance</h4>
+          <h4>Financial Modeling</h4>
           <div>
             <p>
               <a target="_blank"
@@ -144,7 +225,7 @@
             </p>
           </div>
           <div>
-            <h4>Additional Writing</h4>
+            <h4>International and Domestic Policy</h4>
             <div>
               <p>
                 <a target="_blank"
@@ -179,15 +260,16 @@
           where I majored in both economics and anthropology. After undergrad, I returned to New Jersey to work at
           Bloomberg
           Global Data for an additional year. In 2023, I enrolled in Flatiron School's data science bootcamp, where I
-          learned a lot about machine learning, statistics, and programming in Python and SQL.
+          produced a large portfolio of projects involving machine learning, statistics, and programming in Python and
+          SQL.
           I'm putting those skills to work as a researcher at the
           Evolutionary Biology
           department at Princeton University. Here I use and develop deep learning models to reconstruct phylogenies of
           reptile clades.
           I focus on using Bayesian inference and Markov Chain algorithms to run millions of analyses on the most likely
-          patterns of diversification.
-          <br> <br> In my free time, I love struggling with the NYT crossword, and
-          rock climbing with friends. I also occasionally draw and paint. The portrait above is a charcoal sketch I
+          patterns of animal diversification.
+          <br> <br> In my free time, I bake (excessively) and take dance classes with my friends. I also occasionally
+          draw and paint. The portrait above is a charcoal sketch I
           recently did of my mom (who thinks I should've drawn her with fewer wrinkles)!
 
         </p>
@@ -200,6 +282,9 @@
           <p>
             <a target="_blank" href="https://www.linkedin.com/in/shelleywang22/">
               LinkedIn
+            </a>
+            <a target="_blank" href="mailto:shelleylwang@gmail.com">
+              Email
             </a>
           </p>
           <p>
